@@ -1,12 +1,10 @@
-# Azure Static Web Apps
+# Azure Static Web Apps CI/CD
 
-# Add your Azure Static Web App settings in this file
-version: 0.1
-app_location: '/'  # App source code path. For example, './' or 'app'.
-output_location: '.'  # Build output location. For example, 'build/' or 'dist/'.
-skip_app_build: true  # Skip build and use existing output from the last build.
+# Skip the app build
+skip_app_build: true
 
-# If you want to run a different workflow, you can set the route and the existing output path.
-# routes:
-#   - route: /api/*
-#     serve: api/
+# The output location for static files
+output_location: 
+  # Specify your output location here
+
+# The rest of your workflow configuration
