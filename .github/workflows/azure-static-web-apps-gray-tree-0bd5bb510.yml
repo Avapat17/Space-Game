@@ -1,3 +1,12 @@
 # Azure Static Web Apps
-\n# GitHub Actions configuration file for Azure Static Web Apps.
-\nname: Azure Static Web Apps CI\n\non: [push]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Build and Deploy\n        uses: Azure/static-web-apps-deploy@v1\n        with:\n          azure_static_web_apps_access_token: \${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}\n          repo_token: \${{ secrets.GITHUB_TOKEN }}\n          action: "upload"\n          output_location: "/"  # Updated output location to '/'\n          app_location: "/"\n          api_location: ""\n
+
+# Add your Azure Static Web App settings in this file
+version: 0.1
+app_location: '/'  # App source code path. For example, './' or 'app'.
+output_location: '.'  # Build output location. For example, 'build/' or 'dist/'.
+skip_app_build: true  # Skip build and use existing output from the last build.
+
+# If you want to run a different workflow, you can set the route and the existing output path.
+# routes:
+#   - route: /api/*
+#     serve: api/
