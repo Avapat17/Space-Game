@@ -1,10 +1,24 @@
-# Azure Static Web Apps CI/CD
+# Azure Static Web Apps
 
-# Skip the app build
-skip_app_build: true
+name: Azure Static Web Apps
 
-# The output location for static files
-output_location: 
-  # Specify your output location here
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-# The rest of your workflow configuration
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - task: AzureStaticWebApp@0
+        inputs:
+          skip_app_build: true
+          app_build_command: echo
+          app_location: "/"
+          api_location: "api"
+          output_location: "build"
+          azure_static_web_apps_api_token: "${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}"
